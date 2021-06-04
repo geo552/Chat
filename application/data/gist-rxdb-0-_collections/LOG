@@ -1,0 +1,13 @@
+2021/06/04-09:45:36.768 25a4 Recovering log #12
+2021/06/04-09:45:36.769 25a4 Level-0 table #14: started
+2021/06/04-09:45:36.772 25a4 Level-0 table #14: 237 bytes OK
+2021/06/04-09:45:36.778 25a4 Delete type=0 #12
+2021/06/04-09:45:36.779 25a4 Delete type=3 #10
+2021/06/04-09:45:36.779 1f8c Compacting 4@0 + 0@1 files
+2021/06/04-09:45:36.784 1f8c Generated table #16@0: 9 keys, 1557 bytes
+2021/06/04-09:45:36.784 1f8c Compacted 4@0 + 0@1 files => 1557 bytes
+2021/06/04-09:45:36.786 1f8c compacted to: files[ 0 1 0 0 0 0 0 ]
+2021/06/04-09:45:36.786 1f8c Delete type=2 #5
+2021/06/04-09:45:36.787 1f8c Delete type=2 #8
+2021/06/04-09:45:36.787 1f8c Delete type=2 #11
+2021/06/04-09:45:36.788 1f8c Delete type=2 #14

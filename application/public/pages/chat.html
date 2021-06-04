@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta http-equiv="Content-type" content="text/html; charset=utf-8" />
+  <meta http-equiv="Content-language" content="ru" />
+
+  <title>SimpleChat — Онлайн-чат</title>
+  <meta name="description" content="Учебный проект  — онлайн-чат на Node.js">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0" />
+
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+
+  <link rel="image_src" href="" /> <!-- TODO -->
+
+  <link rel="stylesheet" href="css/main.min.css">
+
+  <script src="js/scripts.min.js"></script>
+</head>
+
+<body>
+  <div class="root">
+    <div class="header">
+      <div class="header-menu__toggle">
+          <div class="burger-icon" onclick="showSidebar();">
+            <span class="burger-icon__line"></span>
+            <span class="burger-icon__line"></span>
+            <span class="burger-icon__line"></span>
+          </div>
+        </div>
+
+      <div class="header-menu">
+        <div class="header-menu__logo"></div>
+      </div>
+
+      <div class="header-settings">
+        <a class="header-settings__link"><i class="fas fa-cog"></i></a>
+      </div>
+    </div>
+
+    <div class="content">
+      <div class="sidebar">
+        <div class="sidebar-search">
+          <input type="search" class="sidebar-search__input" placeholder="Поиск">
+        </div>
+
+        <ul class="dialogs-list">
+
+        </ul>
+
+        <span class="sidebar__btn">
+          <a class="button button-accent button-big button-circle" id="dlg-conv-open"><i class="fas fa-plus"></i></a>
+        </span>
+      </div>
+
+      <div class="chat">
+        <ul class="chat-list"></ul>
+
+        <div class="chat__footer">
+          <div class="msg-box">
+            <input type="text" class="msg-box__input"
+                   placeholder="Введите сообщение...">
+          </div>
+
+
+          <div class="btn-box">
+            <a href="#" class="btn-box__icon" onmouseover="showEmoji()" onmouseout="hideEmoji()">
+              <i class="far fa-smile"></i>
+            </a>
+            <div id="emoji" class="emoji-menu" onmouseover="showEmoji()" onmouseout="hideEmoji()">
+              <ul class="emoji-list">
+                <li><a onmousedown="putEmoji(this)">😀</a></li>
+                <li><a onmousedown="putEmoji(this)">😁</a></li>
+                <li><a onmousedown="putEmoji(this)">😂</a></li>
+                <li><a onmousedown="putEmoji(this)">😃</a></li>
+                <li><a onmousedown="putEmoji(this)">😄</a></li>
+                <li><a onmousedown="putEmoji(this)">😅</a></li>
+                <li><a onmousedown="putEmoji(this)">😆</a></li>
+                <li><a onmousedown="putEmoji(this)">😇</a></li>
+                <li><a onmousedown="putEmoji(this)">😈</a></li>
+                <li><a onmousedown="putEmoji(this)">😉</a></li>
+                <li><a onmousedown="putEmoji(this)">😊</a></li>
+                <li><a onmousedown="putEmoji(this)">😋</a></li>
+                <li><a onmousedown="putEmoji(this)">😌</a></li>
+                <li><a onmousedown="putEmoji(this)">😍</a></li>
+                <li><a onmousedown="putEmoji(this)">😎</a></li>
+                <li><a onmousedown="putEmoji(this)">😏</a></li>
+                <li><a onmousedown="putEmoji(this)">😐</a></li>
+                <li><a onmousedown="putEmoji(this)">😑</a></li>
+                <li><a onmousedown="putEmoji(this)">😒</a></li>
+                <li><a onmousedown="putEmoji(this)">😓</a></li>
+                <li><a onmousedown="putEmoji(this)">😔</a></li>
+                <li><a onmousedown="putEmoji(this)">😕</a></li>
+                <li><a onmousedown="putEmoji(this)">😖</a></li>
+                <li><a onmousedown="putEmoji(this)">😗</a></li>
+                <li><a onmousedown="putEmoji(this)">😘</a></li>
+                <li><a onmousedown="putEmoji(this)">😙</a></li>
+                <li><a onmousedown="putEmoji(this)">😚</a></li>
+                <li><a onmousedown="putEmoji(this)">😛</a></li>
+                <li><a onmousedown="putEmoji(this)">😜</a></li>
+                <li><a onmousedown="putEmoji(this)">😝</a></li>
+                <li><a onmousedown="putEmoji(this)">😞</a></li>
+                <li><a onmousedown="putEmoji(this)">😟</a></li>
+                <li><a onmousedown="putEmoji(this)">😠</a></li>
+                <li><a onmousedown="putEmoji(this)">😡</a></li>
+                <li><a onmousedown="putEmoji(this)">😢</a></li>
+                <li><a onmousedown="putEmoji(this)">😣</a></li>
+                <li><a onmousedown="putEmoji(this)">😤</a></li>
+                <li><a onmousedown="putEmoji(this)">😥</a></li>
+                <li><a onmousedown="putEmoji(this)">😦</a></li>
+                <li><a onmousedown="putEmoji(this)">😧</a></li>
+                <li><a onmousedown="putEmoji(this)">😨</a></li>
+                <li><a onmousedown="putEmoji(this)">😩</a></li>
+                <li><a onmousedown="putEmoji(this)">😪</a></li>
+                <li><a onmousedown="putEmoji(this)">😫</a></li>
+                <li><a onmousedown="putEmoji(this)">😬</a></li>
+                <li><a onmousedown="putEmoji(this)">😭</a></li>
+                <li><a onmousedown="putEmoji(this)">😮</a></li>
+                <li><a onmousedown="putEmoji(this)">😯</a></li>
+                <li><a onmousedown="putEmoji(this)">😰</a></li>
+                <li><a onmousedown="putEmoji(this)">😱</a></li>
+                <li><a onmousedown="putEmoji(this)">😲</a></li>
+                <li><a onmousedown="putEmoji(this)">😳</a></li>
+                <li><a onmousedown="putEmoji(this)">😴</a></li>
+                <li><a onmousedown="putEmoji(this)">😵</a></li>
+                <li><a onmousedown="putEmoji(this)">😶</a></li>
+                <li><a onmousedown="putEmoji(this)">😷</a></li>
+                <li><a onmousedown="putEmoji(this)">😸</a></li>
+                <li><a onmousedown="putEmoji(this)">😹</a></li>
+                <li><a onmousedown="putEmoji(this)">😺</a></li>
+                <li><a onmousedown="putEmoji(this)">😻</a></li>
+                <li><a onmousedown="putEmoji(this)">😼</a></li>
+                <li><a onmousedown="putEmoji(this)">😽</a></li>
+                <li><a onmousedown="putEmoji(this)">😾</a></li>
+                <li><a onmousedown="putEmoji(this)">😿</a></li>
+
+                <li><a onmousedown="putEmoji(this)">💗</a></li>
+                <li><a onmousedown="putEmoji(this)">💘</a></li>
+                <li><a onmousedown="putEmoji(this)">💔</a></li>
+                <li><a onmousedown="putEmoji(this)">💕</a></li>
+                <li><a onmousedown="putEmoji(this)">💙</a></li>
+                <li><a onmousedown="putEmoji(this)">💚</a></li>
+                <li><a onmousedown="putEmoji(this)">💛</a></li>
+                <li><a onmousedown="putEmoji(this)">💜</a></li>
+              </ul>
+            </div>
+
+            <a href="#" class="btn-box__icon" onclick="func()">
+              <i class="fas fa-plus"></i>
+            </a>
+            <input type="file" id="dialog_window" name="photo" multiple accept="image/*, image/jpeg">
+          </div>
+        </div>
+      </div>
+
+      <div class="profile">
+
+      </div>
+
+      <div id="dlg-conv-modal" class="modal modal_conv">
+        <div class="modal-content">
+          <span class="input input_primary">
+            <input class="input-field input-field_primary"
+              id="dlg-conv-title"
+              type="text"
+              minlength=1
+              maxlength=20
+              required />
+            <label class="input-label input-label_primary">
+              <span class="input-label-content input-label-content_primary">Название беседы</span>
+            </label>
+          </span>
+
+          <span class="input input_primary">
+            <input class="input-field input-field_primary"
+              id="dlg-conv-description"
+              type="text"
+              minlength=4
+              required />
+            <label class="input-label input-label_primary">
+              <span class="input-label-content input-label-content_primary">Описание</span>
+            </label>
+          </span>
+
+          <span class="input input_primary">
+            <input class="input-field input-field_primary"
+              id="dlg-conv-members"
+              type="text"
+              minlength=4
+              required />
+            <label class="input-label input-label_primary">
+              <span class="input-label-content input-label-content_primary">Участники (через пробел)</span>
+            </label>
+          </span>
+
+          <span class="input input_transparent">
+            <a class="button button-accent button-big" id="dlg-conv-btn-create">Создать</a>
+          </span>
+
+          <span class="input input_transparent">
+            <a class="button button-accent button-big button-solid" id="dlg-conv-btn-cancel">Отменить</a>
+          </span>
+        </div>
+      </div>
+
+      <div id="settings-modal" class="modal modal_set">
+        <div class="modal-content">
+          <span class="settings__label">
+            Тема оформления:
+          </span>
+
+          <div class="setm-themes">
+            <a class="button button-solid" id="dlg-conv-btn-create" onclick="changeStyle('light');">Светлая</a>
+            <a class="button button-solid" id="dlg-conv-btn-create" onclick="changeStyle('dark');">Темная</a>
+            <a class="button button-solid" id="dlg-conv-btn-create" onclick="changeStyle('dark-blue');">Темно-синяя</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</body>
+
+</html>
